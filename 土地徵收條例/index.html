@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>地政士國考《土地徵收條例及其施行細則》完整數位課程講義</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:wght@600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* 補充：隨堂小練習可展開參考解析樣式 */
+    .quiz-answer {
+      margin-top: 10px;
+      border-radius: 8px;
+      background-color: var(--white);
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+    }
+    .quiz-answer summary {
+      cursor: pointer;
+      padding: 8px 14px;
+      font-size: 0.92em;
+      font-weight: 600;
+      color: var(--starbucks-green);
+      background-color: var(--green-light-tint);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      user-select: none;
+    }
+    .quiz-answer summary::-webkit-details-marker {
+      display: none;
+    }
+    .quiz-answer summary::before {
+      content: "▸";
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+    .quiz-answer[open] summary::before {
+      transform: rotate(90deg);
+    }
+    .quiz-answer-body {
+      padding: 12px 16px;
+      font-size: 0.95em;
+      border-top: 1px solid var(--hairline);
+    }
+    .quiz-answer-body p:first-child {
+      margin-top: 0;
+    }
+    .quiz-answer-body p:last-child {
+      margin-bottom: 0;
+    }
+    /* 近10年命題比例長條圖卡片 */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin: 18px 0 24px;
+    }
+    .stat-card {
+      background: var(--white);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--card-radius);
+      padding: 16px 18px;
+      box-shadow: var(--card-shadow);
+    }
+    .stat-card.highlight {
+      border-color: var(--starbucks-green);
+      background: linear-gradient(180deg, rgba(212, 233, 226, 0.35) 0%, #ffffff 100%);
+    }
+    .stat-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-black-soft);
+      margin-bottom: 4px;
+    }
+    .stat-value {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--house-green);
+      margin-bottom: 6px;
+    }
+    .stat-card.highlight .stat-value {
+      color: var(--starbucks-green);
+    }
+    .stat-bar-bg {
+      height: 8px;
+      background: var(--ceramic);
+      border-radius: 99px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    .stat-bar-fill {
+      height: 100%;
+      background: var(--starbucks-green);
+      border-radius: 99px;
+    }
+    .stat-card:not(.highlight) .stat-bar-fill {
+      background: var(--gold);
+    }
+    .stat-desc {
+      font-size: 13px;
+      color: var(--text-black-soft);
+      line-height: 1.5;
+    }
+    .status-pill-ready {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--green-light);
+      color: var(--house-green);
+    }
+    .course-switch-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .course-switch-link:hover {
+      background: rgba(255, 255, 255, 0.24);
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* =========================================================
+       置頂法條原文檢索列（Sticky Top Bar）
+       ========================================================= */
+    .law-sticky-bar {
+      position: sticky;
+      top: 0;
+      z-index: 95;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-subtle);
+      box-shadow: 0 2px 10px rgba(30, 57, 50, 0.06);
+    }
+    .law-sticky-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 10px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 14px;
+    }
+    .law-sticky-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--house-green);
+      white-space: nowrap;
+    }
+    .law-quick-form {
+      display: flex;
+      align-items: center;
+      flex: 1 1 260px;
+      max-width: 440px;
+      background: var(--warm-neutral, #f7f7f5);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: 999px;
+      padding: 3px 4px 3px 14px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .law-quick-form:focus-within {
+      border-color: var(--starbucks-green);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(0, 117, 74, 0.12);
+    }
+    .law-quick-input {
+      flex: 1;
+      min-width: 120px;
+      border: none;
+      background: transparent;
+      font-size: 14px;
+      color: var(--text-black);
+      outline: none;
+      font-family: inherit;
+    }
+    .law-quick-submit {
+      border: none;
+      border-radius: 999px;
+      background: var(--starbucks-green);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.18s ease;
+    }
+    .law-quick-submit:hover {
+      background: var(--house-green);
+    }
+    .law-quick-chips {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .law-chip-btn {
+      border: 1px solid var(--border-subtle);
+      background: var(--white);
+      color: var(--house-green);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.16s ease;
+      white-space: nowrap;
+    }
+    .law-chip-btn:hover {
+      border-color: var(--starbucks-green);
+      background: var(--green-light-tint);
+      color: var(--starbucks-green);
+    }
+    .law-open-all-btn {
+      margin-left: auto;
+      border: 1.5px solid var(--house-green);
+      background: var(--house-green);
+      color: #fff;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: background 0.18s ease;
+    }
+    .law-open-all-btn:hover {
+      background: var(--starbucks-green);
+      border-color: var(--starbucks-green);
+    }
+
+    /* =========================================================
+       右側滑出式法條原文檢索抽屜（Drawer）
+       ========================================================= */
+    .law-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 29, 25, 0.45);
+      z-index: 998;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.24s ease;
+    }
+    .law-drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .law-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(680px, 100vw);
+      background: #f9f9f7;
+      z-index: 999;
+      box-shadow: -8px 0 32px rgba(0, 0, 0, 0.18);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .law-drawer.open {
+      transform: translateX(0);
+    }
+    .law-drawer-header {
+      background: var(--house-green);
+      color: #fff;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .law-drawer-title {
+      margin: 0;
+      font-size: 18px;
+      font-family: var(--font-serif);
+      line-height: 1.3;
+    }
+    .law-drawer-sub {
+      margin: 3px 0 0;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .law-drawer-close {
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .law-drawer-close:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+    .law-drawer-controls {
+      padding: 14px 20px 12px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .law-search-row {
+      display: flex;
+      gap: 8px;
+    }
+    .law-drawer-input {
+      flex: 1;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 9px 14px;
+      font-size: 14.5px;
+      font-family: inherit;
+      outline: none;
+    }
+    .law-drawer-input:focus {
+      border-color: var(--starbucks-green);
+      box-shadow: 0 0 0 3px rgba(0, 117, 74, 0.12);
+    }
+    .law-clear-btn {
+      border: 1px solid var(--border-subtle);
+      background: var(--white);
+      color: var(--text-black-soft);
+      border-radius: 10px;
+      padding: 0 12px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .law-clear-btn:hover {
+      background: var(--ceramic);
+    }
+    .law-filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+    .law-tab-group {
+      display: inline-flex;
+      background: var(--ceramic);
+      border-radius: 999px;
+      padding: 3px;
+      gap: 2px;
+    }
+    .law-tab-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-black-soft);
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 5px 11px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .law-tab-btn.active {
+      background: var(--starbucks-green);
+      color: #fff;
+    }
+    .law-chapter-select {
+      flex: 1;
+      min-width: 160px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 13px;
+      background: var(--white);
+      color: var(--text-black);
+      font-family: inherit;
+    }
+    .law-result-bar {
+      padding: 8px 20px;
+      font-size: 12.5px;
+      color: var(--text-black-soft);
+      background: #f2f4f2;
+      border-bottom: 1px solid var(--hairline);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .law-drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 20px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .law-article-card {
+      background: var(--white);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 14px 16px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    }
+    .law-article-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .law-article-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .law-badge-act {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      background: var(--green-light);
+      color: var(--house-green);
+    }
+    .law-badge-rules {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      background: #f5ebd6;
+      color: #7c5611;
+    }
+    .law-article-no {
+      font-weight: 700;
+      font-size: 15.5px;
+      color: var(--house-green);
+    }
+    .law-article-chapter {
+      font-size: 12px;
+      color: var(--text-black-soft);
+    }
+    .law-copy-btn {
+      border: 1px solid var(--border-subtle);
+      background: var(--white);
+      color: var(--text-black-soft);
+      border-radius: 6px;
+      padding: 3px 9px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .law-copy-btn:hover {
+      border-color: var(--starbucks-green);
+      color: var(--starbucks-green);
+    }
+    .law-article-text {
+      margin: 0;
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: var(--text-black);
+      white-space: pre-line;
+    }
+    .law-hl {
+      background: #fff2a8;
+      color: #1e3932;
+      padding: 0 2px;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+    .law-empty-state {
+      text-align: center;
+      padding: 36px 16px;
+      color: var(--text-black-soft);
+      font-size: 14.5px;
+    }
+    @media (max-width: 768px) {
+      .law-sticky-inner {
+        padding: 8px 14px;
+      }
+      .law-quick-chips {
+        display: none;
+      }
+      .law-open-all-btn {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 上方標題區（House Green #1E3932） -->
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <div class="brand-group">
+        <div class="brand-emblem" id="brandEmblem" aria-hidden="true">徵</div>
+        <div class="header-titles">
+          <span class="header-kicker" id="headerKicker">地政士國家考試・土地法規 年年必考核心大法</span>
+          <h1 class="site-title" id="siteTitle">《土地徵收條例及其施行細則》數位課程講義</h1>
+          <p class="site-subtitle" id="siteSubtitle">白話條文解析 × 母法與施行細則同步整合 × 憲法解釋與申論實戰（全套 9 堂完整收錄：課前導讀、第 1～9 課）</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <a href="../index.html" class="course-switch-link" title="切換至《平均地權條例及其施行細則》數位課程講義">← 返回《平均地權條例》課程</a>
+
+        <div class="progress-pill" title="已複習單元進度">
+          <span class="star-icon" aria-hidden="true">★</span>
+          <span id="progressText">進度 0 / 10</span>
+          <div class="progress-bar-mini" aria-hidden="true">
+            <div class="progress-bar-mini-fill" id="progressBarFill"></div>
+          </div>
+        </div>
+
+        <div class="font-controls" role="group" aria-label="字體大小調整">
+          <button type="button" class="font-btn" data-size="15px">小</button>
+          <button type="button" class="font-btn active" data-size="16px">標準</button>
+          <button type="button" class="font-btn" data-size="18px">大</button>
+        </div>
+
+        <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-expanded="false" aria-controls="chapterSidebar">
+          ☰ 章節目錄
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 置頂常駐：法條原文快速檢索列 -->
+  <nav class="law-sticky-bar" aria-label="法條原文快速檢索">
+    <div class="law-sticky-inner">
+      <span class="law-sticky-label">📖 法條原文檢索</span>
+      <form class="law-quick-form" id="lawQuickForm">
+        <input
+          type="search"
+          class="law-quick-input"
+          id="lawQuickInput"
+          placeholder="輸入條號（如 3-2、8、30、49、細則10）或關鍵字（如 抵價地、市價）…"
+          aria-label="搜尋土地徵收條例或施行細則法條"
+        />
+        <button type="submit" class="law-quick-submit">查條文</button>
+      </form>
+      <div class="law-quick-chips" aria-label="常用法條快選">
+        <button type="button" class="law-chip-btn" data-law-jump="act:3-2">§3-2 公益必要</button>
+        <button type="button" class="law-chip-btn" data-law-jump="act:8">§8 一併徵收</button>
+        <button type="button" class="law-chip-btn" data-law-jump="act:9">§9 收回權</button>
+        <button type="button" class="law-chip-btn" data-law-jump="act:11">§11 協議價購</button>
+        <button type="button" class="law-chip-btn" data-law-jump="act:30">§30 市價補償</button>
+        <button type="button" class="law-chip-btn" data-law-jump="act:39">§39 抵價地</button>
+        <button type="button" class="law-chip-btn" data-law-jump="act:49">§49 撤銷廢止</button>
+      </div>
+      <button type="button" class="law-open-all-btn" id="openLawDrawerBtn">
+        <span>📚 參考法條原文</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 右側滑出式：法條原文檢索抽屜 -->
+  <div class="law-drawer-backdrop" id="lawDrawerBackdrop" aria-hidden="true"></div>
+  <aside class="law-drawer" id="lawDrawer" role="dialog" aria-modal="true" aria-labelledby="lawDrawerTitle" aria-hidden="true">
+    <div class="law-drawer-header">
+      <div>
+        <h2 class="law-drawer-title" id="lawDrawerTitle">📖 法條原文即時檢索</h2>
+        <p class="law-drawer-sub" id="lawDrawerSub">收錄《土地徵收條例》暨《土地徵收條例施行細則》官方現行全文（離線可查）</p>
+      </div>
+      <button type="button" class="law-drawer-close" id="closeLawDrawerBtn" aria-label="關閉法條檢索">✕</button>
+    </div>
+
+    <div class="law-drawer-controls">
+      <div class="law-search-row">
+        <input
+          type="search"
+          class="law-drawer-input"
+          id="lawDrawerInput"
+          placeholder="輸入條號（如 3-2、30、細則10）或多個關鍵字（以空白分隔）…"
+          aria-label="即時檢索法條原文"
+        />
+        <button type="button" class="law-clear-btn" id="lawClearBtn">清除</button>
+      </div>
+      <div class="law-filter-row">
+        <div class="law-tab-group" role="tablist" aria-label="篩選法規">
+          <button type="button" class="law-tab-btn active" data-law-filter="all" role="tab" aria-selected="true">全部</button>
+          <button type="button" class="law-tab-btn" data-law-filter="act" role="tab" aria-selected="false">土地徵收條例</button>
+          <button type="button" class="law-tab-btn" data-law-filter="rules" role="tab" aria-selected="false">施行細則</button>
+        </div>
+        <select class="law-chapter-select" id="lawChapterSelect" aria-label="依章節篩選">
+          <option value="">全部章節</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="law-result-bar">
+      <span id="lawResultCount">載入法條中…</span>
+      <span>按 ESC 可快速關閉</span>
+    </div>
+
+    <div class="law-drawer-body" id="lawDrawerBody"></div>
+  </aside>
+
+  <!-- 下方雙欄區：左側章節目錄 (1) : 右側課程內容 (3) -->
+  <div class="workspace-container">
+    <!-- 左側欄位 (1fr)：各章節標題 -->
+    <aside class="sidebar" id="chapterSidebar" aria-label="課程章節目錄">
+      <div class="sidebar-header">
+        <h2 class="sidebar-title" id="sidebarTitle">土地徵收課程目錄</h2>
+        <span class="sidebar-count" id="sidebarCount">共 10 單元</span>
+      </div>
+      <ul class="chapter-list" id="chapterList"></ul>
+    </aside>
+
+    <!-- 右側欄位 (3fr)：課程內容 -->
+    <main class="content-column" id="mainContent">
+      <article class="lesson-card" aria-live="polite">
+        <div class="lesson-banner">
+          <div class="lesson-banner-meta">
+            <span class="pill-tag pill-tag-green" id="lessonBadge">課前導讀</span>
+            <span class="pill-tag pill-tag-mint" id="lessonArticles">考情分析與 9 堂課綱</span>
+            <span class="pill-tag pill-tag-gold" id="lessonImportance">重要度 ★★★★★</span>
+          </div>
+          <h2 class="lesson-title" id="lessonTitle">載入中…</h2>
+          <p class="lesson-lead" id="lessonLead"></p>
+        </div>
+
+        <div class="lesson-body" id="lessonBody"></div>
+
+        <div class="lesson-footer">
+          <button type="button" class="btn-pill btn-complete" id="toggleCompleteBtn">
+            <span id="completeIcon">○</span>
+            <span id="completeLabel">標記本單元已複習</span>
+          </button>
+
+          <div class="nav-btn-group">
+            <button type="button" class="btn-pill btn-outlined" id="prevBtn">← 上一章</button>
+            <button type="button" class="btn-pill btn-primary" id="nextBtn">下一章 →</button>
+          </div>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <!-- Floating Back to Top -->
+  <button type="button" class="frap-btn" id="backToTopBtn" title="回到頂端" aria-label="回到頁面頂端">
+    ↑
+  </button>
+
+  <!-- 頁尾 -->
+  <footer class="site-footer">
+    地政士國考數位講義・<strong>《土地徵收條例》×《土地徵收條例施行細則》完整攻略班</strong>・祝您金榜題名
+  </footer>
+
+  <!-- 課程模組化載入 -->
+  <script>
+    window.EXPROPRIATION_LESSONS = [];
+  </script>
+  <script src="lessons-part1.js"></script>
+  <script src="lessons-part2.js"></script>
+  <script src="lessons-part3.js"></script>
+  <script src="laws-data.js"></script>
+
+  <script>
+    (function () {
+      const STORAGE_COMPLETED_KEY = "expropriation_land_completed_v1";
+      const STORAGE_FONT_KEY = "expropriation_land_font_size_v1";
+      const lessons = window.EXPROPRIATION_LESSONS || [];
+
+      const sidebarCountEl = document.getElementById("sidebarCount");
+      const chapterListEl = document.getElementById("chapterList");
+      const lessonBadgeEl = document.getElementById("lessonBadge");
+      const lessonArticlesEl = document.getElementById("lessonArticles");
+      const lessonImportanceEl = document.getElementById("lessonImportance");
+      const lessonTitleEl = document.getElementById("lessonTitle");
+      const lessonLeadEl = document.getElementById("lessonLead");
+      const lessonBodyEl = document.getElementById("lessonBody");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const toggleCompleteBtn = document.getElementById("toggleCompleteBtn");
+      const completeIconEl = document.getElementById("completeIcon");
+      const completeLabelEl = document.getElementById("completeLabel");
+      const progressTextEl = document.getElementById("progressText");
+      const progressBarFillEl = document.getElementById("progressBarFill");
+      const mobileNavToggle = document.getElementById("mobileNavToggle");
+      const sidebarEl = document.getElementById("chapterSidebar");
+      const backToTopBtn = document.getElementById("backToTopBtn");
+      const fontButtons = document.querySelectorAll(".font-btn");
+
+      let currentIndex = 0;
+      const completedSet = loadCompleted();
+
+      function loadCompleted() {
+        try {
+          const raw = localStorage.getItem(STORAGE_COMPLETED_KEY);
+          return new Set(raw ? JSON.parse(raw) : []);
+        } catch (e) {
+          return new Set();
+        }
+      }
+
+      function saveCompleted() {
+        try {
+          localStorage.setItem(STORAGE_COMPLETED_KEY, JSON.stringify(Array.from(completedSet)));
+        } catch (e) {}
+      }
+
+      function updateProgressUI() {
+        const validIds = new Set(lessons.map((l) => l.id));
+        const doneCount = Array.from(completedSet).filter((id) => validIds.has(id)).length;
+        const total = lessons.length;
+        sidebarCountEl.textContent = `共 ${total} 單元`;
+        progressTextEl.textContent = `進度 ${doneCount} / ${total}`;
+        const pct = total > 0 ? Math.round((doneCount / total) * 100) : 0;
+        progressBarFillEl.style.width = `${pct}%`;
+      }
+
+      function renderSidebar() {
+        chapterListEl.innerHTML = "";
+        let lastGroup = null;
+
+        lessons.forEach((lesson, index) => {
+          if (lesson.group && lesson.group !== lastGroup) {
+            const groupLi = document.createElement("li");
+            groupLi.className = "chapter-group-header";
+            groupLi.textContent = lesson.group;
+            chapterListEl.appendChild(groupLi);
+            lastGroup = lesson.group;
+          }
+
+          const li = document.createElement("li");
+          li.className = "chapter-item";
+
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "chapter-btn";
+          if (index === currentIndex) btn.classList.add("active");
+          if (completedSet.has(lesson.id)) btn.classList.add("completed");
+          btn.setAttribute("aria-current", index === currentIndex ? "page" : "false");
+
+          btn.innerHTML = `
+            <div class="chapter-btn-top">
+              <span class="chapter-badge">${lesson.badge}</span>
+              <span class="chapter-status-dot" aria-hidden="true">✓</span>
+            </div>
+            <div class="chapter-name">${lesson.shortTitle}</div>
+            <div class="chapter-meta">
+              <span>${lesson.articles}</span>
+              <span class="chapter-stars">${lesson.importance}</span>
+            </div>
+          `;
+
+          btn.addEventListener("click", () => {
+            selectLesson(index, true);
+            sidebarEl.classList.remove("mobile-open");
+            mobileNavToggle.setAttribute("aria-expanded", "false");
+          });
+
+          li.appendChild(btn);
+          chapterListEl.appendChild(li);
+        });
+      }
+
+      function updateCompleteButton() {
+        const currentLesson = lessons[currentIndex];
+        if (!currentLesson) return;
+        const isDone = completedSet.has(currentLesson.id);
+        toggleCompleteBtn.classList.toggle("is-done", isDone);
+        completeIconEl.textContent = isDone ? "✓" : "○";
+        completeLabelEl.textContent = isDone ? "已完成本單元複習" : "標記本單元已複習";
+      }
+
+      function selectLesson(index, shouldScroll) {
+        if (index < 0 || index >= lessons.length) return;
+        currentIndex = index;
+        const lesson = lessons[index];
+
+        lessonBadgeEl.textContent = lesson.badge;
+        lessonArticlesEl.textContent = lesson.articles;
+        lessonImportanceEl.textContent = `重要度 ${lesson.importance}`;
+        lessonTitleEl.textContent = lesson.title;
+        lessonLeadEl.textContent = lesson.lead;
+        lessonBodyEl.innerHTML = lesson.content;
+
+        // 課綱表格點擊跳轉
+        lessonBodyEl.querySelectorAll("[data-jump]").forEach((row) => {
+          row.addEventListener("click", () => {
+            const targetId = row.getAttribute("data-jump");
+            const targetIdx = lessons.findIndex((l) => l.id === targetId);
+            if (targetIdx !== -1) selectLesson(targetIdx, true);
+          });
+        });
+
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index === lessons.length - 1;
+        prevBtn.textContent = index > 0 ? `← ${lessons[index - 1].badge}` : "← 已是第一章";
+        nextBtn.textContent = index < lessons.length - 1 ? `${lessons[index + 1].badge} →` : "已到最終章 ✓";
+
+        if (window.location.hash !== `#${lesson.id}`) {
+          history.replaceState(null, "", `#${lesson.id}`);
+        }
+
+        renderSidebar();
+        updateCompleteButton();
+        updateProgressUI();
+
+        if (shouldScroll) {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+
+      prevBtn.addEventListener("click", () => selectLesson(currentIndex - 1, true));
+      nextBtn.addEventListener("click", () => selectLesson(currentIndex + 1, true));
+
+      toggleCompleteBtn.addEventListener("click", () => {
+        const currentLesson = lessons[currentIndex];
+        if (!currentLesson) return;
+        if (completedSet.has(currentLesson.id)) {
+          completedSet.delete(currentLesson.id);
+        } else {
+          completedSet.add(currentLesson.id);
+        }
+        saveCompleted();
+        renderSidebar();
+        updateCompleteButton();
+        updateProgressUI();
+      });
+
+      mobileNavToggle.addEventListener("click", () => {
+        const isOpen = sidebarEl.classList.toggle("mobile-open");
+        mobileNavToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      function applyFontSize(size) {
+        document.documentElement.style.setProperty("--reader-font-size", size);
+        fontButtons.forEach((b) => b.classList.toggle("active", b.dataset.size === size));
+        try {
+          localStorage.setItem(STORAGE_FONT_KEY, size);
+        } catch (e) {}
+      }
+
+      fontButtons.forEach((btn) => {
+        btn.addEventListener("click", () => applyFontSize(btn.dataset.size));
+      });
+
+      try {
+        const savedFont = localStorage.getItem(STORAGE_FONT_KEY);
+        if (savedFont) applyFontSize(savedFont);
+      } catch (e) {}
+
+      window.addEventListener("scroll", () => {
+        backToTopBtn.classList.toggle("visible", window.scrollY > 260);
+      });
+
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      window.addEventListener("hashchange", () => {
+        const hashId = window.location.hash.replace("#", "");
+        const idx = lessons.findIndex((l) => l.id === hashId);
+        if (idx !== -1 && idx !== currentIndex) {
+          selectLesson(idx, true);
+        }
+      });
+
+      const initialHash = window.location.hash.replace("#", "");
+      const initialIdx = lessons.findIndex((l) => l.id === initialHash);
+      selectLesson(initialIdx !== -1 ? initialIdx : 0, false);
+
+      // =====================================================================
+      // 置頂法條原文檢索功能（土地徵收條例 71 條 ＋ 施行細則 78 條）
+      // =====================================================================
+      const lawData = window.EXPROPRIATION_LAWS || { meta: {}, articles: [] };
+      const allArticles = lawData.articles || [];
+
+      const lawQuickForm = document.getElementById("lawQuickForm");
+      const lawQuickInput = document.getElementById("lawQuickInput");
+      const openLawDrawerBtn = document.getElementById("openLawDrawerBtn");
+      const lawDrawer = document.getElementById("lawDrawer");
+      const lawDrawerBackdrop = document.getElementById("lawDrawerBackdrop");
+      const closeLawDrawerBtn = document.getElementById("closeLawDrawerBtn");
+      const lawDrawerSub = document.getElementById("lawDrawerSub");
+      const lawDrawerInput = document.getElementById("lawDrawerInput");
+      const lawClearBtn = document.getElementById("lawClearBtn");
+      const lawTabBtns = document.querySelectorAll(".law-tab-btn");
+      const lawChapterSelect = document.getElementById("lawChapterSelect");
+      const lawResultCount = document.getElementById("lawResultCount");
+      const lawDrawerBody = document.getElementById("lawDrawerBody");
+      const lawChipBtns = document.querySelectorAll("[data-law-jump]");
+
+      let activeLawFilter = "all";
+      let activeChapter = "";
+
+      if (lawData.meta && lawData.meta.act && lawData.meta.rules) {
+        lawDrawerSub.textContent =
+          `土地徵收條例（${lawData.meta.act.updated}修正・${lawData.meta.act.count}條）× 施行細則（${lawData.meta.rules.updated}修正・${lawData.meta.rules.count}條）`;
+      }
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function escapeRegExp(str) {
+        return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      }
+
+      function normalizeArticleQuery(raw) {
+        return raw
+          .trim()
+          .replace(/^§\s*/g, "")
+          .replace(/之/g, "-")
+          .replace(/^第\s*/g, "")
+          .replace(/\s*條$/g, "")
+          .trim();
+      }
+
+      function populateChapters() {
+        const set = new Set();
+        allArticles.forEach((a) => {
+          if (activeLawFilter === "all" || a.law === activeLawFilter) {
+            if (a.chapter) set.add(a.chapter);
+          }
+        });
+        const prev = activeChapter;
+        lawChapterSelect.innerHTML = '<option value="">全部章節</option>';
+        Array.from(set).forEach((ch) => {
+          const opt = document.createElement("option");
+          opt.value = ch;
+          opt.textContent = ch;
+          if (ch === prev) opt.selected = true;
+          lawChapterSelect.appendChild(opt);
+        });
+        if (!set.has(activeChapter)) activeChapter = "";
+      }
+
+      function highlightText(text, terms) {
+        let html = escapeHtml(text);
+        const validTerms = terms.filter((t) => t.length > 0);
+        if (!validTerms.length) return html;
+        const pattern = new RegExp(`(${validTerms.map(escapeRegExp).join("|")})`, "gi");
+        return html.replace(pattern, '<mark class="law-hl">$1</mark>');
+      }
+
+      function renderLawResults() {
+        const rawQuery = lawDrawerInput.value.trim();
+        let query = rawQuery;
+        let forceLaw = activeLawFilter;
+
+        // 支援使用者輸入「細則10」或「細則 10」直接篩選施行細則
+        if (/^細則\s*/.test(query)) {
+          forceLaw = "rules";
+          query = query.replace(/^細則\s*/, "").trim();
+        } else if (/^(?:條例|母法)\s*/.test(query)) {
+          forceLaw = "act";
+          query = query.replace(/^(?:條例|母法)\s*/, "").trim();
+        }
+
+        const normNo = normalizeArticleQuery(query);
+        const isPureNumberQuery = /^[0-9]+(?:-[0-9]+)?$/.test(normNo);
+        const keywords = query ? query.split(/\s+/).filter(Boolean) : [];
+
+        const matched = allArticles.filter((a) => {
+          if (forceLaw !== "all" && a.law !== forceLaw) return false;
+          if (activeChapter && a.chapter !== activeChapter) return false;
+          if (!query) return true;
+
+          if (isPureNumberQuery) {
+            return a.num === normNo || a.num.startsWith(normNo + "-");
+          }
+
+          const haystack = `${a.lawName} ${a.chapter} ${a.no} ${a.num} ${a.content}`.toLowerCase();
+          return keywords.every((kw) => {
+            const normKw = normalizeArticleQuery(kw).toLowerCase();
+            return haystack.includes(kw.toLowerCase()) || (normKw && a.num.toLowerCase() === normKw);
+          });
+        });
+
+        if (isPureNumberQuery) {
+          matched.sort((a, b) => (a.num === normNo ? -1 : b.num === normNo ? 1 : 0));
+        }
+
+        lawResultCount.textContent = `找到 ${matched.length} 條法規原文（共收錄 ${allArticles.length} 條）`;
+
+        if (matched.length === 0) {
+          lawDrawerBody.innerHTML = `
+            <div class="law-empty-state">
+              找不到符合「<strong>${escapeHtml(rawQuery)}</strong>」的條文。<br />
+              試試輸入條號（如 <code>3-2</code>、<code>30</code>、<code>細則10</code>）或簡短關鍵字（如 <code>市價</code>、<code>抵價地</code>、<code>撤銷</code>）。
+            </div>
+          `;
+          return;
+        }
+
+        const hlTerms = isPureNumberQuery ? [] : keywords;
+        const fragment = document.createDocumentFragment();
+
+        matched.forEach((a) => {
+          const card = document.createElement("article");
+          card.className = "law-article-card";
+          const badgeClass = a.law === "act" ? "law-badge-act" : "law-badge-rules";
+          const attachTag = a.hasAttachment ? ' <span class="law-article-chapter">（本條有附件）</span>' : "";
+          card.innerHTML = `
+            <div class="law-article-head">
+              <div class="law-article-meta">
+                <span class="${badgeClass}">${escapeHtml(a.lawName)}</span>
+                <span class="law-article-no">${escapeHtml(a.no)}</span>
+                <span class="law-article-chapter">${escapeHtml(a.chapter)}</span>${attachTag}
+              </div>
+              <button type="button" class="law-copy-btn">複製條文</button>
+            </div>
+            <p class="law-article-text">${highlightText(a.content, hlTerms)}</p>
+          `;
+
+          const copyBtn = card.querySelector(".law-copy-btn");
+          copyBtn.addEventListener("click", () => {
+            const copyText = `【${a.lawName} ${a.no}】\n${a.content}`;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(copyText).then(() => {
+                copyBtn.textContent = "已複製 ✓";
+                setTimeout(() => (copyBtn.textContent = "複製條文"), 1400);
+              });
+            }
+          });
+
+          fragment.appendChild(card);
+        });
+
+        lawDrawerBody.innerHTML = "";
+        lawDrawerBody.appendChild(fragment);
+        lawDrawerBody.scrollTop = 0;
+      }
+
+      function setLawFilter(filter) {
+        activeLawFilter = filter;
+        lawTabBtns.forEach((btn) => {
+          const isActive = btn.dataset.lawFilter === filter;
+          btn.classList.toggle("active", isActive);
+          btn.setAttribute("aria-selected", String(isActive));
+        });
+        populateChapters();
+        renderLawResults();
+      }
+
+      function openLawDrawer(initialQuery, filter) {
+        if (filter) {
+          activeLawFilter = filter;
+          lawTabBtns.forEach((btn) => {
+            const isActive = btn.dataset.lawFilter === filter;
+            btn.classList.toggle("active", isActive);
+            btn.setAttribute("aria-selected", String(isActive));
+          });
+        }
+        if (typeof initialQuery === "string") {
+          lawDrawerInput.value = initialQuery;
+          activeChapter = "";
+        }
+        populateChapters();
+        renderLawResults();
+
+        lawDrawer.classList.add("open");
+        lawDrawerBackdrop.classList.add("open");
+        lawDrawer.setAttribute("aria-hidden", "false");
+        lawDrawerBackdrop.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        setTimeout(() => lawDrawerInput.focus(), 180);
+      }
+
+      function closeLawDrawer() {
+        lawDrawer.classList.remove("open");
+        lawDrawerBackdrop.classList.remove("open");
+        lawDrawer.setAttribute("aria-hidden", "true");
+        lawDrawerBackdrop.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      lawQuickForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        openLawDrawer(lawQuickInput.value.trim(), "all");
+      });
+
+      openLawDrawerBtn.addEventListener("click", () => {
+        openLawDrawer(lawQuickInput.value.trim(), activeLawFilter);
+      });
+
+      lawChipBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const [lawKey, num] = btn.dataset.lawJump.split(":");
+          lawQuickInput.value = num;
+          openLawDrawer(num, lawKey);
+        });
+      });
+
+      closeLawDrawerBtn.addEventListener("click", closeLawDrawer);
+      lawDrawerBackdrop.addEventListener("click", closeLawDrawer);
+
+      lawDrawerInput.addEventListener("input", () => {
+        lawQuickInput.value = lawDrawerInput.value;
+        renderLawResults();
+      });
+
+      lawClearBtn.addEventListener("click", () => {
+        lawDrawerInput.value = "";
+        lawQuickInput.value = "";
+        activeChapter = "";
+        lawChapterSelect.value = "";
+        renderLawResults();
+        lawDrawerInput.focus();
+      });
+
+      lawTabBtns.forEach((btn) => {
+        btn.addEventListener("click", () => setLawFilter(btn.dataset.lawFilter));
+      });
+
+      lawChapterSelect.addEventListener("change", () => {
+        activeChapter = lawChapterSelect.value;
+        renderLawResults();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lawDrawer.classList.contains("open")) {
+          closeLawDrawer();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
